@@ -47,11 +47,15 @@ Kasiski Who?-        Vigenère     - A two-part solve:used ROT13 to find the key
 
 But are there eggs?- Bacon Cipher - Decoded a binary-style pattern of A's and B's to find the hidden plaintext.
 
+--
+
 🛠️ The Toolkit
 
 . Terminal: Debian Linux (head, exiftool, mv)
 . Web Tools: CyberChef, CyberSeek.org
 . Key Concepts: File Headers, Metadata Analysis, Ciphers, and the CIA Triad.
+
+--
 
 🧠 Why Documentation Matters
 
