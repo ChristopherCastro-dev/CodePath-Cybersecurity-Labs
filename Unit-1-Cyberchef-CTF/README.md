@@ -1,0 +1,58 @@
+🚩 Project 1: The CyberChef CTF Gauntlet
+By Christopher Maximo Castro | CodePath CYB101
+
+--
+🌟 The Big Picture
+I started this project thinking cybersecurity was just about complex code, but I quickly realized it’s actually about being a digital detective. This CTF taught me to stay curious when a file doesn't open or a message looks like gibberish.
+
+--
+
+My Journey: 😌 (Starting out) → 🤩 (Finding my first flag) → 🤯 (Realizing how much is hidden in plain sight)
+
+--
+🏗️ The "Why": The CIA Triad
+Before touching any tools, I had to master the CIA Triad—the North Star of security. It helped me categorize every attack I encountered:
+  Confidentiality: I practiced this by decoding Base64 and ROT13. It’s the art of ensuring only authorized    eyes see the data.
+  Integrity: I learned that files can lie! Checking Magic Numbers (like identifying a PDF header in a .txt    file) taught me how to verify data is exactly what it claims to be.
+  Availability: I explored Ransomware, the ultimate availability nightmare where data isn't stolen, but       simply made inaccessible to the owner.
+
+--
+
+🕵️ Technical Highlights & Logic
+
+1. Trusting the "Magic Numbers" (File Analysis)
+I encountered a file named README.txt that wouldn't open. Instead of guessing, I used the Debian terminal head command to inspect the file's hex signature.
+
+  . The Discovery: The header showed %pdf-1.5, meaning the file was a PDF masquerading as a text file.
+  . The Solution: I used the mv command to change the extension to .pdf, which revealed the flag.
+
+2. Digital Forensics: The "Arch" Metadata
+I analyzed an image of an arch (arch.jpg) using exiftool.
+
+  . The Discovery: Tucked away in the "Camera Brand" field was a suspicious string of text ending in =.
+  . The Solution: Recognizing the = padding as a signature of Base64 encoding, I ran the string through CyberChef to extract the hidden flag.
+
+--
+
+🔐 Cryptography Breakdown
+I cleared the full cryptography board using CyberChef and logic:
+
+Challenge          Cipher Type                        MyLogic
+=========         =============       =============================================
+Shifty               ROT13         - Performed a Caesar Shift until the gibberish turned into readable English.
+
+Encoded Message-     Base64       - Identified the encoding via the = padding and reversed it.
+
+Kasiski Who?-        Vigenère     - A two-part solve:used ROT13 to find the key,used key to unlock the message.
+
+But are there eggs?- Bacon Cipher - Decoded a binary-style pattern of A's and B's to find the hidden plaintext.
+
+🛠️ The Toolkit
+
+. Terminal: Debian Linux (head, exiftool, mv)
+. Web Tools: CyberChef, CyberSeek.org
+. Key Concepts: File Headers, Metadata Analysis, Ciphers, and the CIA Triad.
+
+🧠 Why Documentation Matters
+
+In a real-world security role, "finding it" is only half the battle. You have to show your work so the process can be repeated and verified. By writing down each step—from Googling the 46th Mersenne Prime to identifying Virginia as a cyber job hub, I’m building the habit of a professional security analyst.
